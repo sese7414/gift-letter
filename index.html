@@ -16,8 +16,14 @@ body {
   font-family: 'Pretendard', sans-serif;
   background: #f7efe5;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  /*justify-content: center;*/
+  /* 이거 있으면 스크롤하다가 잘림. 
+  align-items: center; */
+  /* ✅ 추가 */
+  align-items: stretch;
+  padding: 40px 16px; /* 스크롤 위한 위아래 여백*/
+
   /* 삭제!
   height: 100vh;
   overflow: hidden; */
@@ -25,8 +31,7 @@ body {
   /* ✅ 추가 */
   min-height: 100vh;
   overflow-y: auto;
-  /* 스크롤 위한 위아래 여백*/
-  padding: 40px 0;
+
   }
 
 /* 봉투 */
@@ -74,6 +79,10 @@ body {
   text-align: center;
   font-size: 14px;
   color: #888;
+}
+
+img {
+  object-fit: contain;
 }
 </style>
 </head>
