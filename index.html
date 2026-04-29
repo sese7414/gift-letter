@@ -25,7 +25,8 @@ body {
   /* ✅ 추가 */
   min-height: 100vh;
   overflow-y: auto;
-
+  /* 스크롤 위한 위아래 여백*/
+  padding: 40px 0;
   }
 
 /* 봉투 */
@@ -40,15 +41,16 @@ body {
 
 /* 편지 */
 #letter {
-  position: absolute;
-  bottom: -100%;
   width: 90%;
   max-width: 400px;
   background: #fffdf8;
   padding: 25px;
   border-radius: 15px;
+  margin-top: 20px;
+
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  transition: bottom 1s ease;
+
+  display: none;
 }
 
 /* 텍스트 */
@@ -126,10 +128,11 @@ function typeWriter() {
 
 document.getElementById("envelope").onclick = () => {
   document.getElementById("envelope").style.display = "none";
+
   const letter = document.getElementById("letter");
-  letter.style.bottom = "50%";
-  letter.style.transform = "translateY(50%)";
-  setTimeout(typeWriter, 500);
+  letter.style.display = "block";
+
+  setTimeout(typeWriter, 300);
 };
 </script>
 
