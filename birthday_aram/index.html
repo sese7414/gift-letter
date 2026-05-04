@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta property="og:type" content="website">
+<meta property="og:title" content="💌 선물 같은 편지가 도착했어요">
+<meta property="og:description" content="지금 봉투를 열어보세요">
+<meta property="og:image" content="https://sese7414.github.io/gift-letter/birthday_aram/thumbnail.png">
+<meta property="og:url" content="https://sese7414.github.io/gift-letter/birthday_aram/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>선물 같은 편지</title>
+
+<style>
+#intro {
+  position: fixed;   /* 핵심 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* 세로 중앙 */
+  align-items: center;      /* 가로 중앙 */
+
+  background: #f7efe5;
+  z-index: 10;
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  background: #f7efe5;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  /* 이거 있으면 스크롤하다가 잘림. 
+  align-items: center; */
+  /* ✅ 추가 */
+  align-items: stretch;
+  padding: 40px 16px; /* 스크롤 위한 위아래 여백*/
+
+  /* 삭제!
+  height: 100vh;
+  overflow: hidden; */
+
+  /* ✅ 추가 */
+  min-height: 100vh;
+  overflow-y: auto;
+
+  }
+
+/* 봉투 */
+#envelope {
+  width: 220px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+#envelope:hover {
+  transform: scale(1.05);
+}
+
+/* 편지 */
+#letter {
+  width: 100%;
+  max-width: 400px;
+  margin: 80px auto; /* 가운데 정렬 */
+
+  background: #fffdf8;
+  padding: 25px;
+  border-radius: 15px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  display: none;
+}
+
+/* 텍스트 */
+.text {
+  white-space: pre-line;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 사진 */
+#photo {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 15px;
+  display: none;
+}
+
+/* CTA */
+#cta {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+
+img {
+  object-fit: contain;
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+  <img id="envelope" src="envelope.png">
+  <p>봉투를 눌러 열어보세요 💌</p>
+</div>
+
+<div id="letter">
+  <div class="text" id="text"></div>
+  <img id="photo" src="photo.jpg">
+  <div id="cta">💌 </div>  <!-- 나도 편지 보내기 -->
+</div>
+
+<script>
+const message = `To. 아직도 고등학생처럼 함께 놀 수 있는 류아람에게
+류아람~!!! 편지가 좀 늦었지?? ㅎㅎ 내가 열심히 만들어서 주려고 했는데 오늘 포폴 만들고 하다 좀 늦어졌어ㅠㅜ
+그래도 생일 축하 먼저 하고 편지를 줄 수 있어서 나름(?) 안심이다
+
+편지를 쓰다쓰다가 장문의 카톡을 더 예쁘고 정성들여서 간직할 수 있으면 좋겠어서 이렇게 보내ㅋㅎㅋㅎ 맘에 들지는 모르겠지만 네 마음에 쏙 들었으면 좋겠다!
+너를 통해 항상 내가 힘을 얻고 응원받고 있다고 느껴! 함께하는 것의 힘을 더욱 느낀달까나..? 힘들고 지칠 때도 가끔씩 아, 류아람이랑 같이 있으면 내가 더 열심히 할 수 있을 텐데라고 생각했기도 하고 말이야.
+
+그래도 내가 대구에서 이렇게 있는 거 자체가 하나님께서 내가 더 성장할 수 있게, 혼자 설 수 있게 만드시게 하려고 하는 구나 요즘 생각이 들어서
+빨빨 돌아다니려고 노력하고 있어ㅋㅋ
+
+너와 삶을 공유하고 그 삶을 아주 가까이에서 볼 수 있었던 고등학교 때와는 달리 대학교 이후 세밀하게 너의 삶을 함께 할 수는 없지만 그래도 여전히 너는 나에게 참 가까운 존재야💗
+언제 만나도 즐겁고 그간의 일들을 편하게 공유할 수 있는 친구가 있다는 게 나이가 들수록 더 감사하게 느껴져!
+
+류아람, 너는 내가 가장 빨리 결혼할 거라 말했지만,,,, 네가 나보다 빨리 할 가능성이 더 큰 것 같아;; ㅎㅎㅎ 그러니까 우리 서로 더더 추억 많이 쌓고 서로의 시간을 보내자!
+내가 수능 끝나고 하고 싶은 리스트를 아직 다 못 끝냈더라고. 그러니까 나의 소원리스트 성취를 위해서 넌 나와 함께 여행가야 할 의무가 있어ㅋㅎㅋㅎ
+
+그리고 너 진짜 너무 멋져 !!!! 솔직히 나 맨날 자랑하고 다님ㅋㅋㅋㅋ 내 친구 벌써 대리(맞지??)라고ㅋㅋㅋㅋㅋ 암튼 넘 웃긴데 난 네가 어딜가든 잘할 거라 생각해서
+회사에서도 당연히 잘할 거라 생각했거든!! 근데 진짜 잘함 ! 암튼 회사에서 너의 능력을 알아보시는 것 같아서 맘에 들어
+
+항상 나를 예뻐해주고 귀여워해줘서 고맙구 너 덕분인지는 모르겠지만 그게 좀 먹힌 것 같아ㅋㅋ 약간씩 인정하게 되는 것 같기도...?
+아무튼 나도 너만큼 많이많이 표현하지는 못하지만 항상 예쁘고 귀여워(너도 귀여울 때 있어ㅋㅎ)하고 응원하고 있다는 걸 알아주길 바라💗💗
+
+생일 진짜 대빵만큼 축하하고!!!! 이미 맛있는 거 먹고 행복하게 보냈겠지만 앞으로도 슬픈 일보다 행복한 일이, 우울한 일보다 기쁜 일이, 감사한 일이 더 많기를 기도해💗💗💗💗
+
+From. 너의 키링녀가 되고 싶은 세희`;
+
+let i = 0;
+const speed = 40;
+
+function typeWriter() {
+  if (i < message.length) {
+    document.getElementById("text").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  } else {
+    setTimeout(() => {
+      document.getElementById("photo").style.display = "block";
+    }, 500);
+  }
+}
+
+document.getElementById("envelope").onclick = () => {
+  document.getElementById("intro").style.display = "none";
+
+  const letter = document.getElementById("letter");
+  letter.style.display = "block";
+
+  setTimeout(typeWriter, 300);
+};
+</script>
+
+</body>
+</html>
