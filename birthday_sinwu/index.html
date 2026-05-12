@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta property="og:type" content="website">
+<meta property="og:title" content="💌 선물 같은 편지가 도착했어요">
+<meta property="og:description" content="지금 봉투를 열어보세요">
+<meta property="og:image" content="https://sese7414.github.io/gift-letter/birthday_aram/thumbnail.png">
+<meta property="og:url" content="https://sese7414.github.io/gift-letter/birthday_aram/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>선물 같은 편지</title>
+
+<style>
+#intro {
+  position: fixed;   /* 핵심 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* 세로 중앙 */
+  align-items: center;      /* 가로 중앙 */
+
+  background: #f7efe5;
+  z-index: 10;
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  background: #f7efe5;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  /* 이거 있으면 스크롤하다가 잘림. 
+  align-items: center; */
+  /* ✅ 추가 */
+  align-items: stretch;
+  padding: 40px 16px; /* 스크롤 위한 위아래 여백*/
+
+  /* 삭제!
+  height: 100vh;
+  overflow: hidden; */
+
+  /* ✅ 추가 */
+  min-height: 100vh;
+  overflow-y: auto;
+
+  }
+
+/* 봉투 */
+#envelope {
+  width: 220px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+#envelope:hover {
+  transform: scale(1.05);
+}
+
+/* 편지 */
+#letter {
+  width: 100%;
+  max-width: 400px;
+  margin: 80px auto; /* 가운데 정렬 */
+
+  background: #fffdf8;
+  padding: 25px;
+  border-radius: 15px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  display: none;
+}
+
+/* 텍스트 */
+.text {
+  white-space: pre-line;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 사진 */
+#photo {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 15px;
+  display: none;
+}
+
+/* CTA */
+#cta {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+
+img {
+  object-fit: contain;
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+  <img id="envelope" src="envelope.png">
+  <p>봉투를 눌러 열어보세요 💌</p>
+</div>
+
+<div id="letter">
+  <div class="text" id="text"></div>
+  <img id="photo" src="photo.jpg">
+  <div id="cta">💌 </div>  <!-- 나도 편지 보내기 -->
+</div>
+
+<script>
+const message = `To. 신우에게
+신우야!! 악 늦어버려서 미안해😭ㅠㅜㅠ 사실 편지를 어떻게 쓸까 완전 고민하다가 온라인과 오프라인 둘다 쓰려고 마음을 먹어서 이렇게도 보내ㅋㅎㅋㅎ
+
+너같은 후배가 있다는 것이 너무너무 고맙고 나도 너를 너무너무 좋아한다는 걸 알아줬으면 좋겠어 !!!
+여기서 원래 길게 쓸까도 생각했는데 너라면 실제 편지를 더 좋아할 것 같아서 이번주에 써서 줄게~!
+그리고 조금 담백하고 짧게 써야 다음 편지를 좀 더 기대하지 않을까?? ㅋㅎㅋㅎ
+
+아무튼 생일 너무 축하하고!!! 너랑 만날 수 있어서 하나님께 정말 감사해💕💕 맛있는 거 먹고 재밌게 놀았었길 바라며...!
+
+이번주 토요일에 시간 되면 또 보장!! 점심, 저녁 다 상관없어! 너 괜찮을 때 말해줘!! 만나서 오프라인 편지도 전달해줄게ㅎㅎ
+아니면 집 갈 수도 있으니까 만약 또 그러면 말해줘! 편지 두고 갈게!!
+
+From. 세희`;
+
+let i = 0;
+const speed = 40;
+
+function typeWriter() {
+  if (i < message.length) {
+    document.getElementById("text").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  } else {
+    setTimeout(() => {
+      document.getElementById("photo").style.display = "block";
+    }, 500);
+  }
+}
+
+document.getElementById("envelope").onclick = () => {
+  document.getElementById("intro").style.display = "none";
+
+  const letter = document.getElementById("letter");
+  letter.style.display = "block";
+
+  setTimeout(typeWriter, 300);
+};
+</script>
+
+</body>
+</html>
